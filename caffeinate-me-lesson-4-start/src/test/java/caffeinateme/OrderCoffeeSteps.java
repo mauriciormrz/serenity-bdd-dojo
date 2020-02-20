@@ -10,17 +10,18 @@ import static org.hamcrest.Matchers.hasItem;
 
 public class OrderCoffeeSteps {
 
+
     @Steps
     Customer cathy;
 
-    @Steps
+    @Steps(shared = true)
     Barista barry;
 
     String cathysOrder;
 
     @Given("(.*) is (\\d+) metres? from the coffee shop")
     public void cathy_is_n_meters_from_the_coffee_shop(String name, int distanceInMeters) throws Throwable {
-        cathy.setDistanceFromShop(distanceInMeters);
+        cathy.notifyDistanceFromShop(distanceInMeters);
     }
 
     @When("Cathy (?:orders|has ordered) a (.*)$")
@@ -31,6 +32,8 @@ public class OrderCoffeeSteps {
 
     @Then("Barry should receive the order$")
     public void barry_should_receive_the_order() throws Throwable {
+
+        barry.shouldHaveAPendingOrderFor(cathysOrder);
         assertThat(barry.getPendingOrders(), hasItem(cathysOrder));
     }
 
