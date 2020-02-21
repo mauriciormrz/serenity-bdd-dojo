@@ -2,7 +2,6 @@ package caffeinateme;
 
 import caffeinateme.steps.Customer;
 import caffeinateme.steps.UserRegistrationClient;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import net.thucydides.core.annotations.Steps;
 
@@ -19,5 +18,4 @@ public class UserRegistrationStepDefinitions {
         userRegistrations.registerUser(customer);
         customer.isCalled(userName);
     }
-
 }
