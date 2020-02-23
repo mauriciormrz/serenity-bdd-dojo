@@ -7,8 +7,3 @@ Feature: Add new tasks to a todo list
     Given that James has an empty todo list
     When he adds 'Buy some milk' to his list
     Then 'Buy some milk' should be recorded in his list
-
-  Scenario: Adding an item to a list with other items
-    Given that Jane has a list containing Buy some milk, Walk the dog
-    When she adds 'Buy some cereal' to her list
-    Then her todo list should contain Buy some milk, Walk the dog, Buy some cereal

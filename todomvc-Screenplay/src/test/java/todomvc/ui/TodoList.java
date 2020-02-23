@@ -1,31 +1,14 @@
 package todomvc.ui;
 
-import net.serenitybdd.core.annotations.findby.FindBy;
-import net.serenitybdd.core.pages.PageObject;
-import net.serenitybdd.core.pages.WebElementFacade;
-import org.openqa.selenium.Keys;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+import net.serenitybdd.screenplay.targets.Target;
 
-public class TodoList extends PageObject {
+public class TodoList {
 
-    @FindBy(css=".new-todo")
-    WebElementFacade newTodoField;
+    public final static Target NEW_TODO = Target.the("New Todo Field")
+            .locatedBy(".new-todo");
 
-    public void addTodo(String taskName) {
+    public final static Target ITEMS = Target.the("Todo items")
+            .locatedBy(".todo-list li");
 
-        newTodoField.sendKeys(taskName, Keys.ENTER);
-    }
-
-    public List<String> getTodos() {
-
-        System.out.println("imprimir:" +findAll(".todo-list li").stream().map(WebElementFacade::getText).collect(Collectors.toList()));
-
-        return findAll(".todo-list li")
-                .stream()
-                .map(WebElementFacade::getText)
-                .collect(Collectors.toList());
-    }
 }
