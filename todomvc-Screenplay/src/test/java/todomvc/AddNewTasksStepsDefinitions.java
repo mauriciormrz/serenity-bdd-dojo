@@ -48,13 +48,4 @@ public class AddNewTasksStepsDefinitions {
     }
 
 
-    @Given("^that (?:.*) has a list containing (.*)$")
-    public void has_a_list_containing(List<String> tasks) throws Exception {
-
-    }
-
-    @Then("^(?:his|her) todo list should contain (.*)$")
-    public void list_should_contain(List<String> tasks) throws Exception {
-
-    }
 }

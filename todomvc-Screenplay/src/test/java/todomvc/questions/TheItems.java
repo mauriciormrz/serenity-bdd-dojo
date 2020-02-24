@@ -10,7 +10,9 @@ public class TheItems {
 
     public static <T> Question<List<String>> displayed() {
 
-        return actor -> Text.of(TodoList.ITEMS).viewedBy(actor).asList();
+        return actor -> Text.of(TodoList.ITEMS)
+                .viewedBy(actor)
+                .asList();
     }
 }
 
